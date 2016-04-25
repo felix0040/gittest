@@ -54,6 +54,29 @@ start counting......
 1'''
 
 
+class CountDown(object):
+    def __init__(self, start):
+        self.start = start
+    
+    def __iter__(self):
+        tmp = self.start
+        while tmp > 0:
+            yield tmp
+            tmp -= 1
+    def __reversed__(self):
+        tmp = 1;
+        while tmp < self.start:
+            yield tmp;
+            tmp += 1
+print 'test countdown:'
+cd = CountDown(5)
+for item in cd:
+    print item
+    
+for item in reversed(cd):
+    print item
+
+    
 
 
 
